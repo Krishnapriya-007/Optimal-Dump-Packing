@@ -10,7 +10,7 @@
 
 ## Project Source
 
-The [dashboard source](https://github.com/Krishnapriya-007/Optimal-Dump-Packing/tree/main/autodump_caterpillar-main/site) contains the browser UI. The accompanying Python pipeline and agents are in [`required_project_files`](../required_project_files).
+The [dashboard source](https://github.com/Krishnapriya-007/Optimal-Dump-Packing/tree/main/agentic-ai-dump-site-optimization/site) contains the browser UI. The accompanying Python pipeline and agents are in [`required_project_files`](../../required_project_files).
 
 A planning and monitoring workflow for mining trucks across irregular site polygons, including zone decomposition, route planning, fleet coordination, and operational analytics.
 
@@ -24,8 +24,18 @@ site entry point is `site/index.html`.
 
 ## Documentation
 
-- [CHANGELOG.md](docs/CHANGELOG.md) — summary of the repo reorganization and feature updates.
-- [TESTING.md](docs/TESTING.md) — testing log with errors, fixes, and verification results.
+- [CHANGELOG.md](CHANGELOG.md) — summary of the repo reorganization and feature updates.
+- [TESTING.md](TESTING.md) — testing log with errors, fixes, and verification results.
+
+## Git Hooks
+
+- Run [config/setup-git-hooks.ps1](../config/setup-git-hooks.ps1) once to enable the
+  repo-tracked hooks in [config/git-hooks/](../config/git-hooks/).
+- The pre-commit hook blocks commits that skip `docs/CHANGELOG.md` or `docs/TESTING.md`
+  when code, layout, or workflow files change.
+- Use `git ccommit "message"` to run the automatic wrapper that updates the docs before
+  the commit is created.
+- If you want to inspect the wrapper directly, see [config/sync-commit.ps1](../config/sync-commit.ps1).
 
 ## What's inside
 
@@ -68,9 +78,9 @@ python3 -m http.server 8000
 # open http://localhost:8000/
 ```
 
-## Backend source code
+## Full source code
 
-The Python workflow, agents, models, sample scenes, and validation documents are included in [`required_project_files`](../required_project_files).
+The Python workflow, agents, models, sample scenes, and validation documents are included in [`required_project_files`](../../required_project_files).
 
 ## Citation
 
