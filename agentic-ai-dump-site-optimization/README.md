@@ -8,7 +8,9 @@
 [![Coverage](https://img.shields.io/badge/coverage-62%25%20→%2075%25-00D26A)]()
 [![Hardware](https://img.shields.io/badge/new%20hardware-ZERO-00D26A)]()
 
-## Project Source
+## Open the Dashboard
+
+[Open the live dashboard](https://krishnapriya-007.github.io/Optimal-Dump-Packing/) in any browser.
 
 The [dashboard source](https://github.com/Krishnapriya-007/Optimal-Dump-Packing/tree/main/agentic-ai-dump-site-optimization/site) contains the browser UI. The accompanying Python pipeline and agents are in [`required_project_files`](../required_project_files).
 
