@@ -1,4 +1,4 @@
-# Deploy AutoDump to GitHub Pages — step-by-step
+# Deploy Agentic AI-Based Dump Site Optimization to GitHub Pages
 
 You have everything you need. Pick **one** of the two paths below.
 
@@ -7,14 +7,14 @@ You have everything you need. Pick **one** of the two paths below.
 | **A. Web upload (drag-and-drop)** | ~3 min | You want it live ASAP, no terminal |
 | **B. Git command line** | ~5 min | You'll iterate on the site later |
 
-The final URL will look like `https://preethikakumaravel.github.io/autodump_caterpillar/site/indexV4.html`.
+Repository: <https://github.com/Krishnapriya-007/Optimal-Dump-Packing>
 
 ---
 
 ## ⚡ Path A — Web upload (no terminal)
 
 1. **Create the repository.** Go to <https://github.com/new>
-   - **Repository name**: `autodump` (lowercase, will appear in your URL)
+      - **Repository name**: `Optimal-Dump-Packing`
    - **Public** (required for free GitHub Pages)
    - ✓ "Add a README file" — leave checked, we'll overwrite it
    - Click **Create repository**
@@ -32,7 +32,7 @@ The final URL will look like `https://preethikakumaravel.github.io/autodump_cate
    - **Save**
 
 4. **Wait 30-60 seconds**, then refresh the Pages settings.
-      You'll see: **"Your site is live at https://preethikakumaravel.github.io/autodump_caterpillar/site/indexV4.html"**.
+      GitHub will show the published Pages URL in the repository settings.
 
 5. **Open it.** Click that URL. Done.
 
@@ -42,36 +42,36 @@ The final URL will look like `https://preethikakumaravel.github.io/autodump_cate
 
 ```bash
 # 1. Make the repo locally
-mkdir autodump && cd autodump
+mkdir Optimal-Dump-Packing && cd Optimal-Dump-Packing
 # Drag the contents of the deploy/ folder into here, then:
 git init
 git add .
-git commit -m "Initial deploy: AutoDump v1.4 single-page demo"
+git commit -m "Initial deploy: Agentic AI dump-site dashboard"
 git branch -M main
 
 # 2. Create the empty repo on GitHub
 #    Go to https://github.com/new
-#    Name: autodump
+#    Name: Optimal-Dump-Packing
 #    Visibility: Public
 #    Do NOT add a README on the GitHub side (we already have one)
 #    Click "Create repository"
 
-# 3. Push (replace YOUR-USERNAME with your GitHub handle)
-git remote add origin https://github.com/YOUR-USERNAME/autodump.git
+# 3. Push to the configured project repository
+git remote add origin https://github.com/Krishnapriya-007/Optimal-Dump-Packing.git
 git push -u origin main
 
 # 4. Enable Pages
 #    Repo → Settings → Pages → Source = "GitHub Actions"
 #    (Or "Deploy from branch" → main → /, both work.)
 #
-# 5. Wait ~30s. Visit https://preethikakumaravel.github.io/autodump_caterpillar/site/indexV4.html
+# 5. Wait ~30s. Open the GitHub Pages URL shown in repository settings.
 ```
 
 ---
 
 ## ✅ Post-deploy checklist (5 minutes)
 
-After the URL is live, do these to make sure the site is competition-ready.
+After the URL is live, use this checklist to verify the project site.
 
 - [ ] **Open the live URL on your laptop in a private/incognito window.**
       All 8 pages load. The trained agent reaches ~75% coverage on Live RL Simulation.
@@ -84,24 +84,23 @@ After the URL is live, do these to make sure the site is competition-ready.
 - [ ] **Test the Token Protocol page.** Click each of the 4 scenarios.
       Confirm CLEARANCE appears in the Crash scenario.
 - [ ] **Share the URL in a chat (Slack/WhatsApp/LinkedIn).** Confirm the preview card
-      shows the AutoDump title + description (Open Graph tags). If it shows just
+      shows the Agentic AI project title + description (Open Graph tags). If it shows just
       "github.io", clear the platform's link cache and try again.
-- [ ] **Update the README placeholders.** Replace every `YOUR-USERNAME` with your
-      GitHub handle in `docs/README.md` and inside `site/index.html`'s `<meta property="og:url">`.
+- [ ] **Check the project links.** Confirm README and Open Graph links point to this repository.
 
 ---
 
-## 🌍 Optional: custom domain (e.g., autodump.tech)
+## Optional custom domain
 
 Skip this if you're happy with `*.github.io`. Otherwise:
 
 1. **Buy a domain.** Namecheap, Porkbun, or Cloudflare Registrar (~₹700/year for `.com`).
 2. In your domain registrar, add a **CNAME** record:
    - Host: `@` (or `www`)
-   - Value: `YOUR-USERNAME.github.io`
+      - Value: `Krishnapriya-007.github.io`
 3. In `site/`, rename `CNAME.example` → `CNAME` and put your domain on the first line:
    ```
-   autodump.tech
+      project.example
    ```
 4. Commit, push. GitHub will detect it and provision HTTPS automatically (takes 1-15 min).
 5. Update the `<link rel="canonical">` and OG `og:url` meta tags in `site/index.html` to your
@@ -130,7 +129,7 @@ Pages will deploy automatically. Otherwise it deploys directly from `main`.
 | Symptom | Fix |
 |---|---|
 | **"404 Not Found" on the live URL** | Pages may still be building. Wait 60s and refresh. If still failing after 5 min: Settings → Pages → confirm source is set correctly. |
-| **Site loads, but no Caterpillar yellow** | The browser blocked Google Fonts. The fallback system fonts will render — layout still works. |
+| **Site loads, but fonts differ** | The browser blocked Google Fonts. The fallback system fonts will render — layout still works. |
 | **Token timeline looks empty** | The 0-second event is at left edge. Hover the dots to see tooltips with t/kind/note. |
 | **Custom Field "click to start" stays after I click** | Browser zoom != 100%. Hit Ctrl/Cmd+0. |
 | **Q-agent only reaches 30%** | You re-loaded a non-original polygon. Hit "⟲ Default polygon" on the Custom Field page. |
@@ -152,7 +151,6 @@ Skip this for the competition. Add it after the finale if you want post-event st
 
 ## 🎯 You're done.
 
-Open the URL on demo day. Hand the laptop to a judge. Tell them to draw a polygon on the
-Custom Field page. Watch their face. Win the competition.
+Open the published URL and verify the site pages and planning workflow.
 
-— Team Techiva@26
+Department of Computer Science · 2026

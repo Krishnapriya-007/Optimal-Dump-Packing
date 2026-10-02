@@ -1,21 +1,18 @@
-# AutoDump
+# Agentic AI-Based Dump Site Optimization
 
-> **Reinforcement-learning optimal dump packing for autonomous Cat 793 mining trucks.**
-> Caterpillar Innovation Challenge 2026 — Problem Statement 4
-> Team **Techiva@26** · PSG Institute of Technology
+> **Intelligent mining decision support for dump-site allocation and fleet routing.**
+> Final Year Engineering Project · Department of Computer Science · 2026
 
-[![Status](https://img.shields.io/badge/status-prototype-FFC107)]()
+[![Status](https://img.shields.io/badge/status-prototype-6D28D9)]()
 [![Stack](https://img.shields.io/badge/stack-single--file%20HTML-3DB5F7)]()
 [![Coverage](https://img.shields.io/badge/coverage-62%25%20→%2075%25-00D26A)]()
 [![Hardware](https://img.shields.io/badge/new%20hardware-ZERO-00D26A)]()
 
-## 🌐 [▶ Open the deployed index](https://preethikakumaravel.github.io/autodump_caterpillar/site/indexV4.html)
+## Project Source
 
-This button opens the GitHub Pages root, which serves `site/indexV4.html`.
+The [dashboard source](https://github.com/Krishnapriya-007/Optimal-Dump-Packing/tree/main/autodump_caterpillar-main/site) contains the browser UI. The accompanying Python pipeline and agents are in [`required_project_files`](../required_project_files).
 
-A three-layer software system that raises field coverage of autonomous Cat 793 dump trucks
-on irregular mining polygons from **62.18 %** (current Cat practice) to **74.84 %** (trained
-RL agent) — a **+12.66 percentage-point** improvement with **zero new hardware**.
+A planning and monitoring workflow for mining trucks across irregular site polygons, including zone decomposition, route planning, fleet coordination, and operational analytics.
 
 The site is a single self-contained HTML file. The trained Q-table, the training history,
 the polygon math, the token broker, and the greedy circle-packer are all embedded inline as
@@ -52,7 +49,7 @@ site entry point is `site/index.html`.
 
 ## Measured results
 
-| Metric | Baseline (current Cat) | AutoDump RL | Theoretical ceiling |
+| Metric | Baseline | Planning policy | Theoretical ceiling |
 |---|---|---|---|
 | Coverage | 62.18 % | 74.84 % | 99.41 % |
 | Dumps placed | 10 | 72 | 27 |
@@ -71,26 +68,21 @@ python3 -m http.server 8000
 # open http://localhost:8000/
 ```
 
-## Full source code
+## Backend source code
 
-This repo contains only the deployable static site. The full Python source — including
-the Q-learning trainer, the Flask-style backend, and the test suite — lives at:
-
-[github.com/YOUR-USERNAME/autodump-source](https://github.com/YOUR-USERNAME/autodump-source)
+The Python workflow, agents, models, sample scenes, and validation documents are included in [`required_project_files`](../required_project_files).
 
 ## Citation
 
 ```bibtex
-@misc{techiva2026autodump,
-  title  = {AutoDump: Reinforcement-Learning Optimal Dump Packing for Autonomous Mining Trucks},
-  author = {Team Techiva@26},
+@misc{agenticmining2026,
+  title  = {Agentic AI-Based Dump Site Optimization},
+  author = {Department of Computer Science},
   year   = {2026},
-  note   = {Caterpillar Innovation Challenge 2026, Problem Statement 4},
-  institution = {PSG Institute of Technology}
+  note   = {Final Year Engineering Project}
 }
 ```
 
 ## License
 
-Prototype built for the Caterpillar Innovation Challenge 2026.
-Independent research — not affiliated with Caterpillar Inc.
+Final Year Engineering Project · Department of Computer Science · 2026.

@@ -4,7 +4,7 @@
 #   1. Settings → Pages → Source = "GitHub Actions"
 #   2. git push
 #   3. Wait 30-60 seconds, then visit https://<USER>.github.io/<REPO>/
-name: Deploy AutoDump to GitHub Pages
+name: Deploy Agentic AI Dump Site Optimizer to GitHub Pages
 
 on:
   push:

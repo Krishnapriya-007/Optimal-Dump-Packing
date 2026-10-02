@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>AutoDump</title>
-<link rel="canonical" href="https://preethikakumaravel.github.io/autodump_caterpillar/site/indexV4.html"/>
-<meta property="og:url" content="https://preethikakumaravel.github.io/autodump_caterpillar/site/indexV4.html"/>
-<meta name="description" content="AutoDump Operations: a deployable tool that plans dump-truck routes for autonomous Cat 793/797/785 fleets on irregular mining fields. Built for the Caterpillar Innovation Challenge 2026."/>
-<meta name="author" content="Team Techiva@26 — PSG Institute of Technology"/>
-<meta name="theme-color" content="#15181C"/>
+<title>Agentic AI-Based Dump Site Optimization</title>
+<link rel="canonical" href="https://github.com/Krishnapriya-007/Optimal-Dump-Packing/tree/main/autodump_caterpillar-main/site/indexV4.html"/>
+<meta property="og:url" content="https://github.com/Krishnapriya-007/Optimal-Dump-Packing/tree/main/autodump_caterpillar-main/site/indexV4.html"/>
+<meta name="description" content="Agentic AI-Based Dump Site Optimization for mining operations. Final Year Engineering Project. Department of Computer Science. 2026."/>
+<meta name="author" content="Department of Computer Science"/>
+<meta name="theme-color" content="#090B1F"/>
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="AutoDump Operations — Caterpillar Innovation Challenge 2026"/>
+<meta property="og:title" content="Agentic AI-Based Dump Site Optimization — Final Year Engineering Project"/>
 <meta property="og:description" content="Plan-and-execute tool for autonomous mining-truck dump packing. Site setup → fleet config → live operations → exportable waypoints."/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='16' fill='%236D28D9'/%3E%3Cpath d='M23 42l7-20h4l7 20m-15-6h13M43 25v17' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"/>
@@ -18,29 +18,29 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  /* ---- Design tokens · color primitives (Caterpillar enterprise palette) ---- */
-  --cat-yellow:#FFCD11;        /* Caterpillar Yellow — brand + primary action */
-  --cat-yellow-deep:#EDBC00;   /* hover/pressed yellow */
-  --cat-yellow-text:#7A6200;   /* yellow usable as text on white (≥5:1) */
-  --charcoal-950:#15181C;      /* app frame / map background */
-  --charcoal-900:#1B1F24;
-  --charcoal-800:#262B31;
-  --gray-700:#344054;--gray-600:#475467;--gray-500:#5D6878;
-  --gray-300:#D0D5DD;--gray-200:#E4E7EC;--gray-100:#F2F3F6;--gray-50:#F8F9FB;
+  /* ---- Dark purple AI project palette ---- */
+  --cat-yellow:#A78BFA;
+  --cat-yellow-deep:#7C3AED;
+  --cat-yellow-text:#C4B5FD;
+  --charcoal-950:#090B1F;
+  --charcoal-900:#11142A;
+  --charcoal-800:#1C2040;
+  --gray-700:#D6D8E8;--gray-600:#B8BCD2;--gray-500:#9298B5;
+  --gray-300:#343958;--gray-200:#292E4D;--gray-100:#191D38;--gray-50:#11142A;
   /* ---- Semantic colors (status only — never decorative) ---- */
-  --status-ok:#067647;   --status-ok-strong:#0E9F6E;
-  --status-warn:#B54708; --status-warn-strong:#DC6803;
-  --status-err:#B42318;  --status-err-strong:#D92D20;
-  --status-info:#175CD3; --status-info-strong:#1570EF;
+  --status-ok:#6EE7B7;   --status-ok-strong:#34D399;
+  --status-warn:#FDBA74; --status-warn-strong:#FB923C;
+  --status-err:#FDA29B;  --status-err-strong:#FF6B6B;
+  --status-info:#93C5FD; --status-info-strong:#60A5FA;
   /* ---- Semantic aliases (legacy names kept for the whole codebase) ---- */
-  --bg0:#FFFFFF;--bg1:var(--gray-50);--bg2:var(--gray-100);--bg3:var(--gray-200);
-  --border:var(--gray-200);--border2:var(--gray-300);
-  --txt:#101828;--txt2:var(--gray-700);--txt3:var(--gray-500);
-  --cat:var(--cat-yellow-text);--cat-bright:var(--cat-yellow);--cat2:var(--cat-yellow-deep);--cat-bg:rgba(255,205,17,.13);
-  --green:var(--status-ok-strong);--green-bg:rgba(14,159,110,.10);
-  --red:var(--status-err-strong);--red-bg:rgba(217,45,32,.08);
-  --blue:var(--status-info-strong);--blue-bg:rgba(21,112,239,.09);
-  --purple:#7A5AF8;--orange:var(--status-warn-strong);
+  --bg0:#090B1F;--bg1:#11142A;--bg2:#191D38;--bg3:#252A49;
+  --border:#292E4D;--border2:#343958;
+  --txt:#F4F3FF;--txt2:#D6D8E8;--txt3:#9298B5;
+  --cat:var(--cat-yellow-text);--cat-bright:var(--cat-yellow);--cat2:var(--cat-yellow-deep);--cat-bg:rgba(167,139,250,.16);
+  --green:var(--status-ok-strong);--green-bg:rgba(52,211,153,.12);
+  --red:var(--status-err-strong);--red-bg:rgba(255,107,107,.12);
+  --blue:var(--status-info-strong);--blue-bg:rgba(96,165,250,.12);
+  --purple:#C4B5FD;--orange:var(--status-warn-strong);
   --frame:var(--charcoal-950);--frame-edge:var(--charcoal-800);
   --terminal:var(--charcoal-950);--terminal-edge:var(--charcoal-800);
   /* ---- Spacing scale (4px base) ---- */
@@ -66,7 +66,7 @@ html,body{height:100%;overflow:hidden;font-family:var(--font-main);background:va
 #topbar *:focus-visible,#footer *:focus-visible{outline-color:var(--cat-bright)}
 .skip-link{position:absolute;left:8px;top:-48px;z-index:100;background:var(--charcoal-950);color:#fff;padding:10px 16px;border-radius:0 0 6px 6px;font-size:13px;font-weight:600;text-decoration:none;transition:top var(--t-fast) var(--ease)}
 .skip-link:focus{top:0}
-::selection{background:rgba(255,205,17,.4);color:#101828}
+::selection{background:rgba(167,139,250,.4);color:#F4F3FF}
 .card{transition:box-shadow .2s ease,border-color .2s ease}
 .card:hover{box-shadow:var(--shadow-sm)}
 .btn,.nav-item,.mode-btn{transition:background-color .15s ease,border-color .15s ease,color .15s ease,box-shadow .15s ease,transform .1s ease}
@@ -93,7 +93,7 @@ body{font-size:14px;line-height:1.45}
 .hdr-status-group{display:flex;align-items:center;gap:10px}
 .hdr-chip{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#C5CCD6;font-size:10.5px;font-weight:600;font-family:var(--font-mono);letter-spacing:1px;padding:5px 11px;border-radius:4px;text-transform:uppercase;transition:background-color var(--t-base) var(--ease),color var(--t-base) var(--ease)}
 .hdr-dot{width:7px;height:7px;border-radius:50%;background:#8B94A3;flex:none;transition:background-color var(--t-base) var(--ease)}
-.hdr-chip.running{color:var(--cat-bright);border-color:rgba(255,205,17,.35)}
+.hdr-chip.running{color:var(--cat-bright);border-color:rgba(167,139,250,.45)}
 .hdr-chip.running .hdr-dot{background:var(--cat-bright)}
 .hdr-chip.done{color:#3ED598;border-color:rgba(62,213,152,.3)}
 .hdr-chip.done .hdr-dot{background:#3ED598}
@@ -105,17 +105,17 @@ body{font-size:14px;line-height:1.45}
 #main{display:grid;grid-template-columns:240px 1fr;overflow:hidden}
 
 /* SIDEBAR */
-#sidebar{background:var(--bg1);border-right:1px solid var(--border);display:flex;flex-direction:column;padding:14px 10px;gap:2px;overflow-y:auto}
+#sidebar{background:#11142A;border-right:1px solid #292E4D;display:flex;flex-direction:column;padding:14px 10px;gap:2px;overflow-y:auto}
 .sb-label{font-size:10px;font-weight:700;color:var(--txt3);letter-spacing:2px;text-transform:uppercase;padding:14px 10px 6px}
 .nav-item{display:flex;align-items:center;gap:11px;padding:10px 12px;font-size:13.5px;font-weight:500;color:var(--txt2);cursor:pointer;letter-spacing:.3px;border-radius:8px;position:relative}
 .nav-item::before{content:'';position:absolute;left:-10px;top:22%;bottom:22%;width:3px;border-radius:0 2px 2px 0;background:transparent;transition:background-color .15s}
-.nav-item:hover{background:var(--bg2);color:var(--txt)}
-.nav-item.active{background:var(--bg0);color:var(--txt);font-weight:600;box-shadow:inset 0 0 0 1px var(--border),var(--shadow-xs)}
-.nav-item.active::before{background:var(--cat-bright)}
+.nav-item:hover{background:#201B40;color:#F4F3FF}
+.nav-item.active{background:#1A1738;color:#F4F3FF;font-weight:600;box-shadow:inset 0 0 0 1px rgba(167,139,250,.38),0 0 16px rgba(124,58,237,.24)}
+.nav-item.active::before{background:#A78BFA;box-shadow:0 0 10px rgba(167,139,250,.7)}
 .nav-item.disabled{opacity:.4;cursor:not-allowed}
 .nav-item.disabled:hover{background:transparent;color:var(--txt2)}
 .nav-num{width:24px;height:24px;border-radius:7px;background:var(--bg3);color:var(--txt3);font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);flex:none;transition:background-color .15s,color .15s}
-.nav-item.active .nav-num{background:var(--cat-bright);color:#111}
+.nav-item.active .nav-num{background:#A78BFA;color:#17102B}
 .nav-item.done .nav-num{background:var(--green);color:#fff}
 .nav-item.done .nav-num::before{content:'✓'}
 .nav-item.done .nav-num span{display:none}
@@ -123,7 +123,7 @@ body{font-size:14px;line-height:1.45}
 .nav-item-stack{display:flex;flex-direction:column;flex:1;min-width:0}
 
 /* CONTENT */
-#content{display:flex;flex-direction:column;background:#F2F3F6;background-image:linear-gradient(rgba(16,24,40,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(16,24,40,.022) 1px,transparent 1px);background-size:28px 28px;overflow:hidden}
+#content{display:flex;flex-direction:column;background:#090B1F;background-image:linear-gradient(rgba(196,181,253,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(196,181,253,.025) 1px,transparent 1px);background-size:28px 28px;overflow:hidden}
 .page{display:none;flex:1;overflow:auto;padding:24px 30px}
 .page.active{display:flex;flex-direction:column;gap:18px}
 .page.active>*{animation:pageIn .32s cubic-bezier(.22,.9,.3,1) both}
@@ -138,7 +138,7 @@ body{font-size:14px;line-height:1.45}
 .tag::before{c6ontent:'';width:6px;height:6px;background:var(--cat-bright);border-radius:1px}
 
 /* CARDS */
-.card{background:var(--bg0);border:1px solid var(--border);border-radius:10px;padding:18px;box-shadow:var(--shadow-xs)}
+.card{background:rgba(17,20,42,.68);border:1px solid rgba(167,139,250,.28);border-radius:10px;padding:18px;box-shadow:var(--shadow-xs);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 .card-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;border-bottom:1px solid var(--bg2);padding-bottom:11px;gap:14px}
 .card-title{font-size:11px;font-weight:700;color:var(--txt2);letter-spacing:1.6px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
 .card-title::before{content:'';width:3px;height:12px;background:var(--cat-bright);border-radius:1px;flex:none}
@@ -149,47 +149,41 @@ body{font-size:14px;line-height:1.45}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 
 /* STATS */
-.stat{background:var(--bg0);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-align:left;box-shadow:var(--shadow-xs)}
+.stat{background:rgba(17,20,42,.68);border:1px solid rgba(167,139,250,.28);border-radius:10px;padding:14px 16px;text-align:left;box-shadow:var(--shadow-xs);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 .stat-v{font-size:26px;font-weight:700;color:var(--txt);font-family:var(--font-mono);line-height:1.1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
 .stat-v.green{color:var(--green)} .stat-v.red{color:var(--red)} .stat-v.blue{color:var(--blue)}
 .stat-l{font-size:10px;font-weight:600;color:var(--txt3);letter-spacing:1.2px;text-transform:uppercase;margin-top:6px}
 
 /* BUTTONS */
-.btn{font-size:13px;font-weight:600;padding:8px 14px;border-radius:8px;cursor:pointer;border:1px solid var(--border2);background:var(--bg0);color:var(--txt2);letter-spacing:.3px;display:inline-flex;align-items:center;gap:6px;font-family:var(--font-main);box-shadow:var(--shadow-xs)}
-.btn:hover:not(:disabled){background:var(--bg1);border-color:#AEB6C2;color:var(--txt)}
+.btn{font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;cursor:pointer;border:1px solid #6D28D9;background:#6D28D9;color:#fff;letter-spacing:.3px;display:inline-flex;align-items:center;gap:6px;font-family:var(--font-main);box-shadow:0 0 12px rgba(109,40,217,.24)}
+.btn:hover:not(:disabled){background:#8B5CF6;border-color:#8B5CF6;color:#fff;box-shadow:0 0 16px rgba(139,92,246,.35)}
 .btn:disabled{opacity:.45;cursor:not-allowed}
-.btn.primary{background:var(--cat-bright);color:#111;border-color:#D9AE00;font-weight:700;box-shadow:var(--shadow-xs),inset 0 1px 0 rgba(255,255,255,.4)}
-.btn.primary:hover:not(:disabled){background:var(--cat2);border-color:#C49D00;color:#111}
-.btn.success{background:var(--green-bg);color:#067647;border-color:rgba(14,159,110,.4)}
-.btn.success:hover:not(:disabled){background:rgba(14,159,110,.16)}
-.btn.danger{background:var(--red-bg);color:#B42318;border-color:rgba(217,45,32,.35)}
-.btn.danger:hover:not(:disabled){background:rgba(217,45,32,.14)}
+.btn.primary,.btn.success,.btn.danger{background:#6D28D9;color:#fff;border-color:#6D28D9;box-shadow:0 0 12px rgba(109,40,217,.24)}
+.btn.primary:hover:not(:disabled),.btn.success:hover:not(:disabled),.btn.danger:hover:not(:disabled){background:#8B5CF6;border-color:#8B5CF6;color:#fff;box-shadow:0 0 16px rgba(139,92,246,.35)}
 .btn-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.btn-sm{font-size:11.5px;padding:5px 10px;border-radius:7px}
+.btn-sm{font-size:11.5px;padding:5px 10px;border-radius:999px}
 
-/* MODE BUTTONS (drawing mode) — CAD/GIS toolbar style, Caterpillar yellow theme */
-.mode-btn{flex:1;padding:9px 10px;border-radius:8px;background:var(--bg0);border:1.5px solid var(--cat-yellow-deep);color:var(--txt);font-size:11px;font-weight:700;letter-spacing:.5px;cursor:pointer;text-transform:uppercase;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;box-shadow:var(--shadow-xs);transition:background-color 180ms ease,border-color 180ms ease,transform 120ms ease,box-shadow 180ms ease}
-/* HOVER — soft yellow fill, subtle lift */
-.mode-btn:hover:not(.active):not(:disabled){background:var(--cat-bg);border-color:var(--cat-yellow);box-shadow:var(--shadow-md);transform:translateY(-1px)}
-/* ACTIVE / SELECTED — brand-yellow fill, pressed-in (never black) */
-.mode-btn.active{background:var(--cat-yellow);color:#101828;border-color:var(--cat-yellow-deep);box-shadow:inset 0 2px 5px rgba(122,98,0,.40),inset 0 0 0 1.5px var(--cat-yellow-deep),0 1px 1px rgba(16,24,40,.04);transform:scale(.985) translateY(1px)}
-.mode-btn.active .mb-i{color:#101828}
+/* MODE BUTTONS (drawing mode) */
+.mode-btn{flex:1;padding:9px 10px;border-radius:999px;background:#6D28D9;border:1.5px solid #6D28D9;color:#fff;font-size:11px;font-weight:700;letter-spacing:.5px;cursor:pointer;text-transform:uppercase;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;box-shadow:0 0 12px rgba(109,40,217,.24);transition:background-color 180ms ease,border-color 180ms ease,transform 120ms ease,box-shadow 180ms ease}
+.mode-btn:hover:not(.active):not(:disabled){background:#8B5CF6;border-color:#8B5CF6;box-shadow:0 0 16px rgba(139,92,246,.35);transform:translateY(-1px)}
+.mode-btn.active{background:#6D28D9;color:#fff;border-color:#6D28D9;box-shadow:0 0 16px rgba(139,92,246,.4);transform:scale(.985) translateY(1px)}
+.mode-btn.active .mb-i{color:#fff}
 /* DISABLED — gray, low contrast */
-.mode-btn:disabled,.mode-btn[aria-disabled="true"]{background:var(--bg2);border-color:var(--border);color:var(--txt3);box-shadow:none;cursor:not-allowed;transform:none}
-.mode-btn:disabled .mb-i,.mode-btn[aria-disabled="true"] .mb-i{color:var(--txt3)}
-.mode-btn .mb-i{font-size:14px;line-height:1;color:var(--cat-yellow-deep);transition:color 180ms ease}
+.mode-btn:disabled,.mode-btn[aria-disabled="true"]{background:#6D28D9;border-color:#6D28D9;color:#fff;box-shadow:none;cursor:not-allowed;transform:none;opacity:.45}
+.mode-btn:disabled .mb-i,.mode-btn[aria-disabled="true"] .mb-i{color:#fff}
+.mode-btn .mb-i{font-size:14px;line-height:1;color:#fff;transition:color 180ms ease}
 .mode-btn .mb-l{font-size:9px;letter-spacing:1px}
 
 /* TABLES */
-table{width:100%;border-collapse:collapse;font-size:13px}
-th{text-align:left;padding:9px 12px;color:var(--txt3);font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;border-bottom:1px solid var(--border)}
-td{padding:9px 12px;border-bottom:1px solid var(--bg2);color:var(--txt2);font-family:var(--font-mono);font-size:12px;font-variant-numeric:tabular-nums}
+table{width:100%;border-collapse:collapse;font-size:13px;background:#11142A}
+th{text-align:left;padding:9px 12px;background:#6D28D9;color:#fff;font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;border-bottom:1px solid #8B5CF6}
+td{padding:9px 12px;border-bottom:1px solid var(--bg2);color:#fff;font-family:var(--font-mono);font-size:12px;font-variant-numeric:tabular-nums}
 tbody tr:last-child td{border-bottom:none}
-tr:hover td{background:var(--bg1)}
-td.k{color:var(--txt3);font-family:var(--font-main)}
-td.v{color:var(--cat);font-weight:700}
+tr:hover td{background:rgba(139,92,246,.2)}
+td.k{color:#fff;font-family:var(--font-main)}
+td.v{color:#fff;font-weight:700}
 input.cell, select.cell{width:100%;background:var(--bg0);border:1px solid var(--border2);color:var(--txt);padding:6px 8px;border-radius:7px;font-family:var(--font-mono);font-size:12px;transition:border-color .15s,box-shadow .15s}
-input.cell:focus, select.cell:focus{outline:none;border-color:var(--cat-bright);box-shadow:0 0 0 3px rgba(255,205,17,.22)}
+input.cell:focus, select.cell:focus{outline:none;border-color:var(--cat-bright);box-shadow:0 0 0 3px rgba(167,139,250,.24)}
 
 /* CANVAS */
 canvas.field{background:var(--terminal);border:1px solid #222A37;border-radius:8px;width:100%;display:block;box-shadow:inset 0 0 0 1px rgba(255,255,255,.03)}
@@ -224,12 +218,12 @@ canvas.field{background:var(--terminal);border:1px solid #222A37;border-radius:8
 
 /* PROGRESS BAR */
 .pbar{height:16px;background:var(--bg2);border:1px solid var(--border);border-radius:999px;overflow:hidden;position:relative}
-.pbar-fill{height:100%;background:linear-gradient(180deg,#FFDA45,var(--cat-bright) 55%,#EDBC00);transition:width .3s ease}
-.pbar-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:10px;font-weight:700;color:var(--txt);text-shadow:0 1px 0 rgba(255,255,255,.5)}
+.pbar-fill{height:100%;background:linear-gradient(90deg,#6D28D9,#8B5CF6,#C4B5FD);transition:width .3s ease}
+.pbar-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:10px;font-weight:700;color:var(--txt);text-shadow:0 1px 0 rgba(9,11,31,.5)}
 
 /* CODE BLOCK */
 pre{background:var(--terminal);padding:12px;border-radius:8px;color:#7EE787;font-family:var(--font-mono);font-size:11px;overflow-x:auto;line-height:1.55;border:1px solid var(--terminal-edge)}
-code{font-family:var(--font-mono);color:var(--cat);background:rgba(255,205,17,.12);padding:1px 5px;border-radius:4px;font-size:11.5px}
+code{font-family:var(--font-mono);color:var(--cat);background:rgba(167,139,250,.16);padding:1px 5px;border-radius:4px;font-size:11.5px}
 pre code{background:none;color:inherit;padding:0;border-radius:0}
 
 /* TIMELINE / GANTT */
@@ -262,7 +256,7 @@ pre code{background:none;color:inherit;padding:0;border-radius:0}
 .fill-ratio-title{font-size:10.5px;color:var(--txt3);text-transform:uppercase;letter-spacing:1px;font-weight:700}
 .fill-ratio-value{font-size:34px;line-height:1;font-weight:700;color:var(--cat);font-family:var(--font-mono);font-variant-numeric:tabular-nums}
 .fill-ratio-bar{width:100%;height:12px;background:var(--bg3);border:1px solid var(--border2);border-radius:999px;overflow:hidden}
-.fill-ratio-bar-inner{height:100%;width:0%;background:linear-gradient(180deg,#FFDA45,var(--cat-bright) 55%,#EDBC00);transition:width .35s ease}
+.fill-ratio-bar-inner{height:100%;width:0%;background:linear-gradient(90deg,#6D28D9,#8B5CF6,#C4B5FD);transition:width .35s ease}
 .tilt-status{font-size:11px;font-family:var(--font-mono);letter-spacing:1px}
 .tilt-note{font-size:12px;color:var(--txt2);line-height:1.6}
 
@@ -296,11 +290,11 @@ pre code{background:none;color:inherit;padding:0;border-radius:0}
 }
 /* ===== Merged Fleet-Command dashboard pages (namespaced under .dash) ===== */
 .dash{
-  --cat-yellow:#FFCD11;--cat-yellow-dark:#EDBC00;--cat-yellow-glow:rgba(255,205,17,.28);
-  --bg-card:#FFFFFF;--bg-card-hover:#F7F8FA;--bg-glass:rgba(16,24,40,.04);
-  --border-color:#E4E7EC;--border-glow:#C9D0DA;
-  --text-primary:#101828;--text-secondary:#344054;--text-muted:#667085;
-  --success:#0E9F6E;--warning:#DC6803;--danger:#D92D20;--info:#1570EF;
+  --cat-yellow:#A78BFA;--cat-yellow-dark:#7C3AED;--cat-yellow-glow:rgba(167,139,250,.3);
+  --bg-card:#11142A;--bg-card-hover:#191D38;--bg-glass:rgba(196,181,253,.06);
+  --border-color:#292E4D;--border-glow:#454B70;
+  --text-primary:#F4F3FF;--text-secondary:#D6D8E8;--text-muted:#9298B5;
+  --success:#6EE7B7;--warning:#FDBA74;--danger:#FDA29B;--info:#93C5FD;
   --radius:10px;--radius-sm:8px;--transition:.2s cubic-bezier(.4,0,.2,1);
   --shadow:0 1px 2px rgba(16,24,40,.05);--shadow-glow:0 1px 3px rgba(16,24,40,.08);
   --font-main:'Inter','Segoe UI',system-ui,sans-serif;--font-mono:'IBM Plex Mono',Consolas,ui-monospace,monospace;
@@ -310,7 +304,7 @@ pre code{background:none;color:inherit;padding:0;border-radius:0}
 .dash .section-title{font-family:var(--font-display);font-size:20px;font-weight:700;letter-spacing:-.2px;color:var(--text-primary);margin-bottom:16px;display:flex;align-items:center;gap:10px}
 .dash .section-title i{color:var(--cat-yellow-text);font-size:17px}
 .dash .mb-16{margin-bottom:16px}.dash .mb-20{margin-bottom:20px}
-.dash .card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);transition:border-color var(--transition),box-shadow var(--transition)}
+.dash .card{background:rgba(17,20,42,.68);border:1px solid rgba(167,139,250,.28);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);transition:border-color var(--transition),box-shadow var(--transition);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 .dash .card:hover{border-color:var(--border-glow);box-shadow:0 1px 3px rgba(16,24,40,.08),0 1px 2px rgba(16,24,40,.05)}
 .dash .card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;border-bottom:1px solid var(--bg-glass);padding-bottom:11px}
 .dash .card-title{font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-secondary);letter-spacing:1.6px;display:flex;align-items:center;gap:8px}
@@ -326,7 +320,7 @@ pre code{background:none;color:inherit;padding:0;border-radius:0}
 .dash .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .dash .stat-card{display:flex;align-items:center;gap:16px}
 .dash .stat-icon{width:48px;height:48px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.dash .stat-icon.yellow{background:rgba(255,203,5,.12);color:var(--cat-yellow)}
+.dash .stat-icon.yellow{background:rgba(167,139,250,.16);color:var(--cat-yellow)}
 .dash .stat-icon.green{background:rgba(34,197,94,.12);color:var(--success)}
 .dash .stat-icon.blue{background:rgba(59,130,246,.12);color:var(--info)}
 .dash .stat-icon.red{background:rgba(239,68,68,.12);color:var(--danger)}
@@ -343,7 +337,7 @@ pre code{background:none;color:inherit;padding:0;border-radius:0}
 .dash .toggle input{opacity:0;width:0;height:0}
 .dash .toggle-slider{position:absolute;inset:0;background:var(--bg-glass);border:1px solid var(--border-color);border-radius:24px;cursor:pointer;transition:var(--transition)}
 .dash .toggle-slider::before{content:'';position:absolute;width:18px;height:18px;border-radius:50%;background:var(--text-muted);top:2px;left:2px;transition:var(--transition)}
-.dash .toggle input:checked + .toggle-slider{background:rgba(255,203,5,.2);border-color:var(--cat-yellow)}
+.dash .toggle input:checked + .toggle-slider{background:rgba(167,139,250,.2);border-color:var(--cat-yellow)}
 .dash .toggle input:checked + .toggle-slider::before{transform:translateX(20px);background:var(--cat-yellow)}
 .dash .kill-switch-container{display:flex;flex-direction:column;align-items:center;gap:24px;padding:34px}
 /* Industrial E-stop: red mushroom head on a yellow safety plate — no animation */
@@ -357,7 +351,7 @@ pre code{background:none;color:inherit;padding:0;border-radius:0}
 .dash .kill-btn.active:hover{background:#B91C1C}
 .dash .progress-bar{height:6px;background:var(--bg-glass);border-radius:10px;overflow:hidden;margin-top:8px}
 .dash .progress-fill{height:100%;border-radius:10px;transition:width 1s ease}
-.dash .progress-fill.yellow{background:linear-gradient(90deg,var(--cat-yellow-dark),var(--cat-yellow))}
+.dash .progress-fill.yellow{background:linear-gradient(90deg,#6D28D9,#8B5CF6,#C4B5FD)}
 .dash .progress-fill.green{background:linear-gradient(90deg,#16a34a,var(--success))}
 .dash .progress-fill.blue{background:linear-gradient(90deg,#2563eb,var(--info))}
 .dash .progress-fill.red{background:linear-gradient(90deg,#dc2626,var(--danger))}
@@ -371,7 +365,7 @@ pre code{background:none;color:inherit;padding:0;border-radius:0}
 .dash .status-pill.stopped{background:rgba(239,68,68,.12);color:var(--danger)}
 .dash .status-pill.maintenance{background:rgba(59,130,246,.12);color:var(--info)}
 .dash .comm-node{width:60px;height:60px;border-radius:50%;border:2px solid var(--border-color);background:var(--bg-glass);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;position:relative;transition:border-color var(--t-base) var(--ease),box-shadow var(--t-base) var(--ease)}
-.dash .comm-node.active{border-color:var(--cat-yellow);box-shadow:0 0 0 3px rgba(255,205,17,.18)}
+.dash .comm-node.active{border-color:var(--cat-yellow);box-shadow:0 0 0 3px rgba(167,139,250,.2)}
 .dash .chart-area{width:100%;height:200px;position:relative;overflow:hidden}
 .dash .chart-bar-group{display:flex;align-items:flex-end;gap:4px;height:100%;padding-top:20px}
 .dash .chart-bar{flex:1;border-radius:4px 4px 0 0;transition:height 1s ease;min-width:8px;position:relative;cursor:pointer}
@@ -397,8 +391,8 @@ pre code{background:none;color:inherit;padding:0;border-radius:0}
 <header id="topbar">
   <div class="brand">
     <div style="display:flex;flex-direction:column;justify-content:center;gap:2px;">
-      <div class="cat-logo-text">AUTODUMP<div class="cat-triangle"></div></div>
-      <div class="brand-sub">Mine Operations Planning</div>
+      <div class="cat-logo-text">AGENTIC AI DUMP SITE OPTIMIZER</div>
+      <div class="brand-sub">Intelligent Mining Decision Support System</div>
     </div>
   </div>
   <div class="workflow-progress" role="list" aria-label="Workflow progress">
@@ -453,7 +447,7 @@ pre code{background:none;color:inherit;padding:0;border-radius:0}
 </main>
 
 <footer id="footer">
-  <span>TECHIVA@26 · PSGitech · Caterpillar Innovation Challenge 2026 · PS-4 — Operations Console v2.0</span>
+  <span>Agentic AI-Based Dump Site Optimization · Final Year Engineering Project · Department of Computer Science · 2026</span>
   <span class="amber" id="f-status" role="status" aria-live="polite">ready</span>
 </footer>
 </div>
@@ -545,7 +539,7 @@ document.getElementById("content").innerHTML = `
           <div class="kpi"><div class="kpi-v blue" id="s-area">—</div><div class="kpi-l">area (m²)</div></div>
           <div class="kpi"><div class="kpi-v" id="s-area-ha">—</div><div class="kpi-l">hectares</div></div>
           <div class="kpi"><div class="kpi-v" id="s-area-ac">—</div><div class="kpi-l">acres</div></div>
-          <div class="kpi" style="grid-column:span 2"><div class="kpi-v" style="color:#FFCD11;font-size:13px" id="s-gate">— not set</div><div class="kpi-l">gates</div></div>
+          <div class="kpi" style="grid-column:span 2"><div class="kpi-v" style="color:#A78BFA;font-size:13px" id="s-gate">— not set</div><div class="kpi-l">gates</div></div>
         </div>
         <div id="site-validation" style="margin-top:10px"></div>
       </div>
@@ -561,7 +555,7 @@ document.getElementById("content").innerHTML = `
     <div>
       <span class="tag">step 2 of 5</span>
       <div class="page-title">Fleet <span>Configuration</span></div>
-      <div class="page-sub">Configure each truck in your fleet. Mix Cat 793, 797, and 785 models. Set shift hours and maintenance windows per truck — the planner will respect each truck's availability.</div>
+      <div class="page-sub">Configure each truck in your fleet. Mix 793-, 797-, and 785-class models. Set shift hours and maintenance windows per truck — the planner will respect each truck's availability.</div>
     </div>
     <div class="btn-row">
       <button class="btn" onclick="fleetAddRow()"><i class="fas fa-plus" aria-hidden="true"></i> Add truck</button>
@@ -586,16 +580,16 @@ document.getElementById("content").innerHTML = `
 
   <div class="grid-2">
     <div class="card">
-      <div class="card-h"><div class="card-title">Cat truck specs</div><div class="card-sub">official manufacturer data</div></div>
+      <div class="card-h"><div class="card-title">Haul truck specs</div><div class="card-sub">reference fleet dimensions</div></div>
       <table>
         <thead><tr><th>Model</th><th>Width</th><th>Payload</th><th>Dump radius</th></tr></thead>
         <tbody>
-          <tr><td class="v">Cat 785</td><td>6.4 m</td><td>136 t</td><td>2.6 m</td></tr>
-          <tr><td class="v">Cat 793</td><td>7.6 m</td><td>240 t</td><td>3.2 m</td></tr>
-          <tr><td class="v">Cat 797</td><td>9.7 m</td><td>363 t</td><td>3.8 m</td></tr>
+          <tr><td class="v">785-class</td><td>6.4 m</td><td>136 t</td><td>2.6 m</td></tr>
+          <tr><td class="v">793-class</td><td>7.6 m</td><td>240 t</td><td>3.2 m</td></tr>
+          <tr><td class="v">797-class</td><td>9.7 m</td><td>363 t</td><td>3.8 m</td></tr>
         </tbody>
       </table>
-      <div style="font-size:10px;color:var(--txt3);margin-top:8px;line-height:1.4">Width and dump radius determine the strip size and dump footprint in zone decomposition. The trained Q-learning policy was calibrated on Cat 793.</div>
+      <div style="font-size:10px;color:var(--txt3);margin-top:8px;line-height:1.4">Width and dump radius determine the strip size and dump footprint in zone decomposition. The planning policy uses the 793-class operating envelope as its reference.</div>
     </div>
 
     <div class="card">
@@ -613,7 +607,7 @@ document.getElementById("content").innerHTML = `
     <div>
       <span class="tag">step 3 of 5</span>
       <div class="page-title">Plan <span>Generation</span></div>
-      <div class="page-sub">AutoDump automatically decomposes the mine polygon into operational zones, generates a haul road network connecting every gate to every zone, allocates zones equally across the mixed fleet (priority-weighted), and computes one boustrophedon dump path per zone. Zone count scales with fleet size and site area. The RL-trained policy informs packing density.</div>
+      <div class="page-sub">The planning workflow decomposes the mine polygon into operational zones, generates a haul road network connecting each gate to every zone, allocates zones across the mixed fleet, and computes a dump path per zone. Zone count scales with fleet size and site area.</div>
     </div>
     <div class="btn-row">
       <button class="btn primary" onclick="runPlan()"><i class="fas fa-gears" aria-hidden="true"></i> Generate plan</button>
@@ -817,7 +811,7 @@ document.getElementById("content").innerHTML = `
     <div>
       <span class="tag">reference</span>
       <div class="page-title">About / <span>Method</span></div>
-      <div class="page-sub">How AutoDump works under the hood: zone decomposition, the trained Q-learning agent, the deadlock-free token protocol, and the published research that backs each layer.</div>
+      <div class="page-sub">How the project works: scene analysis, planning, fleet coordination, route generation, safety validation, and the operating workflow that connects each layer.</div>
     </div>
   </div>
 
@@ -885,7 +879,7 @@ document.getElementById("content").innerHTML = `
         <tr><td class="k">Live traffic response</td><td class="v">v = v<sub>0</sub> / (1 + &alpha;&middot;u<sup>&beta;</sup>) clamped to [0.45, 1] on the truck&rsquo;s current edge; EVERY haul-in leg (at reload) and haul-out leg (after dump) is re-planned from the truck&rsquo;s live position via live-occupancy weighted A* &mdash; paths are never static; logged when the route actually changes</td></tr>
         <tr><td class="k">Path smoothing</td><td class="v">quadratic B&eacute;zier corner cuts: B(t) = (1&minus;t)<sup>2</sup>P<sub>a</sub> + 2t(1&minus;t)C + t<sup>2</sup>P<sub>b</sub>, cut depth d = min(0.45&middot;min leg, 2R<sub>turn</sub>), t &isin; &#123;&frac14;, &frac12;, &frac34;&#125; &mdash; dump/load points never move</td></tr>
         <tr><td class="k">Congestion index (KPI)</td><td class="v">CI = &Sigma;<sub>e</sub> occ<sub>e</sub>&middot;u<sub>e</sub> / max(1, &Sigma;<sub>e</sub> occ<sub>e</sub>) &mdash; occupancy-weighted mean utilization; live runs may finish slightly over the planned ETA because of the traffic speed response</td></tr>
-        <tr><td class="k">References</td><td class="v">Bureau of Public Roads (1964) volume-delay function &middot; Pohl (1970) weighted A* &middot; Cat 785/793/797 fuel-burn field references</td></tr>
+        <tr><td class="k">References</td><td class="v">Bureau of Public Roads (1964) volume-delay function &middot; Pohl (1970) weighted A* &middot; haul-truck fuel-burn field references</td></tr>
       </tbody>
     </table>
   </div>
@@ -942,7 +936,7 @@ document.getElementById("content").innerHTML = `
     <div class="card">
       <div class="card-h"><div class="card-title">Coffman 1971 — all four violated</div></div>
       <table>
-        <thead><tr><th>Condition</th><th>How AutoDump violates it</th></tr></thead>
+        <thead><tr><th>Condition</th><th>How the coordination protocol prevents it</th></tr></thead>
         <tbody>
           <tr><td class="k">Mutual exclusion</td><td>Bounded token capacity (finite count).</td></tr>
           <tr><td class="k">Hold and wait</td><td>All-or-nothing acquisition before truck moves.</td></tr>
@@ -983,7 +977,7 @@ const EMBED = {"q_table": [[28.54313035770366, 30.70046940432455, 24.64126291231
 // ============================================================================
 const TRUCK_MODELS = {
   "Cat 785": { width: 6.4, dumpRadius: 2.6, payload: 136, color: "#9B6BFF", speedF: 1.12, scale: 0.78, fuelLoaded: 7.2, fuelEmpty: 4.2 },
-  "Cat 793": { width: 7.6, dumpRadius: 3.2, payload: 240, color: "#FFC107", speedF: 1.00, scale: 0.90, fuelLoaded: 9.6, fuelEmpty: 5.6 },
+  "Cat 793": { width: 7.6, dumpRadius: 3.2, payload: 240, color: "#A78BFA", speedF: 1.00, scale: 0.90, fuelLoaded: 9.6, fuelEmpty: 5.6 },
   "Cat 797": { width: 9.7, dumpRadius: 3.8, payload: 363, color: "#00D26A", speedF: 0.88, scale: 1.05, fuelLoaded: 13.4, fuelEmpty: 7.8 }
 };
 
@@ -1583,15 +1577,15 @@ function haulRoadsToSegments(polylines) {
 function drawMainGate(ctx, P, gate, label) {
   const x = P.px(gate.x), y = P.py(gate.y);
   ctx.save();
-  ctx.fillStyle = "rgba(255,205,17,0.20)";
+  ctx.fillStyle = "rgba(167,139,250,0.20)";
   ctx.beginPath(); ctx.arc(x, y, 16, 0, 2 * Math.PI); ctx.fill();
-  ctx.fillStyle = "#FFCD11";
+  ctx.fillStyle = "#A78BFA";
   ctx.beginPath(); ctx.arc(x, y, 9, 0, 2 * Math.PI); ctx.fill();
-  ctx.strokeStyle = "#111"; ctx.lineWidth = 1.5;
+  ctx.strokeStyle = "#090B1F"; ctx.lineWidth = 1.5;
   ctx.beginPath(); ctx.arc(x, y, 9, 0, 2 * Math.PI); ctx.stroke();
-  ctx.fillStyle = "#111"; ctx.font = "bold 9px monospace"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+  ctx.fillStyle = "#090B1F"; ctx.font = "bold 9px monospace"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
   ctx.fillText("G", x, y);
-  ctx.fillStyle = "#FFCD11"; ctx.font = "bold 10px monospace"; ctx.textAlign = "left"; ctx.textBaseline = "middle";
+  ctx.fillStyle = "#C4B5FD"; ctx.font = "bold 10px monospace"; ctx.textAlign = "left"; ctx.textBaseline = "middle";
   ctx.fillText(label || gate.name || "GATE", x + 14, y);
   ctx.restore();
 }
@@ -1632,7 +1626,7 @@ function drawHaulRoads(ctx, P, haulPolylines) {
   const links = haulPolylines.filter(pl => pl.kind === "link");
   ctx.save();
   // Alternative links (thin, dim — secondary corridors)
-  ctx.strokeStyle = "rgba(255,205,17,0.22)";
+  ctx.strokeStyle = "rgba(167,139,250,0.22)";
   ctx.lineWidth = 3.5; ctx.lineCap = "round"; ctx.lineJoin = "round"; ctx.setLineDash([]);
   links.forEach(pl => {
     if (pl.length < 2) return;
@@ -1640,8 +1634,8 @@ function drawHaulRoads(ctx, P, haulPolylines) {
     pl.forEach((pt, i) => { const x=P.px(pt[0]),y=P.py(pt[1]); i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y); });
     ctx.stroke();
   });
-  // Road surface (wide, amber-tinted)
-  ctx.strokeStyle = "rgba(255,205,17,0.45)";
+  // Road surface (wide, purple-tinted)
+  ctx.strokeStyle = "rgba(167,139,250,0.45)";
   ctx.lineWidth = 7;
   main.forEach(pl => {
     if (pl.length < 2) return;
@@ -2460,7 +2454,7 @@ function drawSite() {
   clearC(ctx); drawGrid(ctx, P);
   // polygon
   if (STATE.site.verts.length > 0) {
-    ctx.strokeStyle = STATE.site.closed ? "#3DB5F7" : "#FFC107";
+    ctx.strokeStyle = STATE.site.closed ? "#3DB5F7" : "#A78BFA";
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     STATE.site.verts.forEach((v,i) => {
@@ -2475,12 +2469,12 @@ function drawSite() {
     }
     ctx.stroke();
     // vertex dots
-    ctx.fillStyle = "#FFC107";
+    ctx.fillStyle = "#A78BFA";
     STATE.site.verts.forEach((v,i) => {
       ctx.beginPath(); ctx.arc(P.px(v[0]), P.py(v[1]), 4, 0, 2*Math.PI); ctx.fill();
-      ctx.fillStyle = "#000"; ctx.font = "bold 9px monospace"; ctx.textAlign = "center";
+      ctx.fillStyle = "#090B1F"; ctx.font = "bold 9px monospace"; ctx.textAlign = "center";
       ctx.fillText(String(i+1), P.px(v[0]), P.py(v[1])+3);
-      ctx.fillStyle = "#FFC107";
+      ctx.fillStyle = "#A78BFA";
     });
   } else {
     ctx.fillStyle = "#5A7099"; ctx.font = "15px sans-serif"; ctx.textAlign = "center";
@@ -3059,7 +3053,7 @@ function drawPlanPreview() {
   Object.values(STATE.plan.zonePaths || {}).forEach(zp => {
     if (!zp.dumps.length) return;
     const truck = STATE.fleet.trucks.find(tt => tt.id === zp.truck);
-    const color = truck ? TRUCK_MODELS[truck.model].color : "#FFC107";
+    const color = truck ? TRUCK_MODELS[truck.model].color : "#A78BFA";
     ctx.strokeStyle = color; ctx.lineWidth = 1.4; ctx.globalAlpha = 0.6;
     ctx.beginPath();
     ctx.moveTo(P.px(zp.access[0]), P.py(zp.access[1]));
@@ -3084,7 +3078,7 @@ function drawPlanPreview() {
     const ax = P.px(z.accessPt[0]), ay = P.py(z.accessPt[1]);
     ctx.save();
     ctx.translate(ax, ay); ctx.rotate(Math.PI/4);
-    ctx.fillStyle = "#FFCD11"; ctx.strokeStyle = "#111"; ctx.lineWidth = 1;
+    ctx.fillStyle = "#A78BFA"; ctx.strokeStyle = "#090B1F"; ctx.lineWidth = 1;
     ctx.fillRect(-3.5, -3.5, 7, 7); ctx.strokeRect(-3.5, -3.5, 7, 7);
     ctx.restore();
   });
@@ -3735,11 +3729,11 @@ function drawTruck(ctx, P, tr) {
     ctx.beginPath(); ctx.arc(x, y, 13, -Math.PI/2, -Math.PI/2 + p*2*Math.PI); ctx.stroke();
   } else if (tr.state === "loading") {
     const p = Math.min(1, tr.loadProgress || 0);
-    ctx.strokeStyle = "rgba(255,205,17,0.30)"; ctx.lineWidth = 2.5;
+    ctx.strokeStyle = "rgba(167,139,250,0.30)"; ctx.lineWidth = 2.5;
     ctx.beginPath(); ctx.arc(x, y, 13, 0, 2*Math.PI); ctx.stroke();
-    ctx.strokeStyle = "#FFCD11"; ctx.lineWidth = 2.5;
+    ctx.strokeStyle = "#A78BFA"; ctx.lineWidth = 2.5;
     ctx.beginPath(); ctx.arc(x, y, 13, -Math.PI/2, -Math.PI/2 + p*2*Math.PI); ctx.stroke();
-    ctx.fillStyle = "#FFCD11"; ctx.font = "bold 7px monospace"; ctx.textAlign = "center";
+    ctx.fillStyle = "#C4B5FD"; ctx.font = "bold 7px monospace"; ctx.textAlign = "center";
     ctx.fillText("RELOAD", x, y - 17);
   }
   const L = 1.5 * mScale * P.s, W = 0.8 * mScale * P.s;     // logical → pixels, model-sized
@@ -3748,9 +3742,9 @@ function drawTruck(ctx, P, tr) {
   // amber pulse halo + label make it clear it is deliberately giving way to another truck
   if (tr.yieldingTo) {
     const pulse = 0.4 + 0.4 * Math.sin(performance.now()/200);
-    ctx.fillStyle = `rgba(255, 200, 50, ${pulse * 0.35})`;
+    ctx.fillStyle = `rgba(167,139,250,${pulse * 0.35})`;
     ctx.beginPath(); ctx.arc(x, y, 18, 0, 2*Math.PI); ctx.fill();
-    ctx.fillStyle = "#FFCD11"; ctx.font = "bold 7px monospace"; ctx.textAlign = "center";
+    ctx.fillStyle = "#C4B5FD"; ctx.font = "bold 7px monospace"; ctx.textAlign = "center";
     ctx.fillText("YIELD", x, y - W - 14);
   }
   ctx.save();
@@ -3783,7 +3777,7 @@ function drawTruck(ctx, P, tr) {
   axles.forEach(ax => {
     ctx.beginPath(); ctx.moveTo(ax, -W/2 - 1.2); ctx.lineTo(ax, W/2 + 1.2); ctx.stroke();
   });
-  ctx.fillStyle = "#FFC72C";                    // Caterpillar yellow cab at front (+x)
+  ctx.fillStyle = "#8B5CF6";                    // Purple cab at front (+x)
   ctx.fillRect(L/2 - L*0.28, -W/2, L*0.28, W);
   ctx.strokeStyle = "#0c0c0c"; ctx.lineWidth = 1.2; ctx.beginPath();
   ctx.moveTo(L*0.55, 0); ctx.lineTo(L*0.30, -W*0.32);
@@ -5217,8 +5211,8 @@ function _tmChartSVG(){
     const px=t=>pad.l+t/tMax*(W-pad.l-pad.r), py=c=>H-pad.b-c*(H-pad.t-pad.b);
     let d=`M ${px(hist[0].t).toFixed(1)} ${py(hist[0].cov).toFixed(1)}`;
     hist.forEach(h=>{d+=` L ${px(h.t).toFixed(1)} ${py(h.cov).toFixed(1)}`;});
-    inner+=`<path d="${d} L ${px(hist[hist.length-1].t).toFixed(1)} ${H-pad.b} L ${pad.l} ${H-pad.b} Z" fill="rgba(255,205,17,0.10)" stroke="none"/>`;
-    inner+=`<path d="${d}" fill="none" stroke="#FFCD11" stroke-width="2"/>`;
+    inner+=`<path d="${d} L ${px(hist[hist.length-1].t).toFixed(1)} ${H-pad.b} L ${pad.l} ${H-pad.b} Z" fill="rgba(167,139,250,0.16)" stroke="none"/>`;
+    inner+=`<path d="${d}" fill="none" stroke="#A78BFA" stroke-width="2"/>`;
   } else {
     inner+=`<text x="${W/2}" y="${H/2}" fill="#98A2B3" text-anchor="middle" font-size="11">Run Live Operations to record telemetry</text>`;
   }

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-AutoDump — a static, single-file HTML dashboard demonstrating RL-based dump placement for autonomous Cat 793 mining trucks (Caterpillar Innovation Challenge 2026). There is no build step, no package manager, no test framework. The entire app (CSS, JS, trained Q-table, training history, polygon math, token broker, packer) is embedded inline in one HTML file.
+Agentic AI-Based Dump Site Optimization — a static, single-file HTML dashboard for mining-site planning and fleet monitoring. There is no build step, no package manager, no test framework. The client-side app and its state are embedded inline in one HTML file.
 
 - **Live entry point:** `site/indexV4.html` (~3,100 lines). This is the file you edit.
 - `older versions/` holds previous standalone builds (`index v1.html` … `index_v3.0.3.html`) for reference only — new versions are created as new files rather than overwriting.
@@ -24,7 +24,7 @@ The only network dependency is Google Fonts (system-font fallback if offline).
 
 ## Deployment
 
-GitHub Pages deploys `./site` automatically on every push to `main` via `.github/workflows/pages.yml`. Live URL: https://preethikakumaravel.github.io/autodump_caterpillar/site/indexV4.html
+GitHub Pages deploys `./site` automatically on every push to `main` via `.github/workflows/pages.yml`.
 
 ## Git workflow — changelog enforcement (important)
 
