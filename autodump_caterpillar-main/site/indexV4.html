@@ -3154,7 +3154,7 @@ function opsReset() {
     const spec = TRUCK_MODELS[t.model] || {};
     return {
       id: t.id, model: t.model, width: t.width, dumpRadius: t.dumpRadius,
-      color: spec.color || "#FFC107",
+      color: spec.color || "#A78BFA",
       speedF: spec.speedF || 1,           // per-model cruise factor (785 nimble, 797 heavy)
       vel: 0,                             // 0..1 throttle — ramps up/down for smooth motion
       x: home.x + (i*0.6), y: home.y + (i*0.3),
@@ -4927,7 +4927,7 @@ function _dTrucks(){
   if(ops) return ops;
   return (STATE.fleet&&STATE.fleet.trucks||[]).map(t=>({
     id:t.id,model:t.model,width:t.width,dumpRadius:t.dumpRadius,
-    color:((typeof TRUCK_MODELS!=='undefined'&&TRUCK_MODELS[t.model])||{}).color||'#FFC107',
+    color:((typeof TRUCK_MODELS!=='undefined'&&TRUCK_MODELS[t.model])||{}).color||'#A78BFA',
     x:null,y:null,state:'config',dumps:0,km:0,idleMin:0,wpIdx:0,waypoints:[],finished:false,stopped:false}));
 }
 function _dZones(id){ const tz=STATE.plan&&STATE.plan.truckZones&&STATE.plan.truckZones[id]; return (tz&&tz.length)?tz.map(z=>'Z'+(z+1)).join(', '):'—'; }
@@ -5020,13 +5020,13 @@ function drawFleetMap(){
   const c=document.getElementById("fleetMap"); if(!c||typeof fit!=='function') return;
   const ctx=c.getContext("2d"); const P=fit(c); clearC(ctx); drawGrid(ctx,P);
   if(STATE.site&&STATE.site.verts&&STATE.site.verts.length){ctx.strokeStyle="#3DB5F7";ctx.lineWidth=2;ctx.beginPath();STATE.site.verts.forEach((v,i)=>{const x=P.px(v[0]),y=P.py(v[1]);i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.closePath();ctx.stroke();}
-  if(STATE.plan&&STATE.plan.zones){STATE.plan.zones.forEach(z=>{ctx.strokeStyle="rgba(255,203,5,0.22)";ctx.setLineDash([4,3]);ctx.strokeRect(P.px(z.x_min),P.py(z.y_top),(z.x_max-z.x_min)*P.s,(z.y_top-z.y_bot)*P.s);ctx.setLineDash([]);});}
+  if(STATE.plan&&STATE.plan.zones){STATE.plan.zones.forEach(z=>{ctx.strokeStyle="rgba(167,139,250,0.22)";ctx.setLineDash([4,3]);ctx.strokeRect(P.px(z.x_min),P.py(z.y_top),(z.x_max-z.x_min)*P.s,(z.y_top-z.y_bot)*P.s);ctx.setLineDash([]);});}
   if(STATE.plan&&STATE.plan.haulPolylines){drawHaulRoads(ctx,P,STATE.plan.haulPolylines);}
   if(STATE.plan){drawGates(ctx,P,STATE.plan.gates||(STATE.plan.mainGate?[STATE.plan.mainGate]:[]));}
   const ts=(STATE.ops&&STATE.ops.trucks)||[];
   ts.forEach(t=>{ if(t.x==null)return; const x=P.px(t.x),y=P.py(t.y);
     const isOverTemp = t.temp > 95;
-    ctx.fillStyle=(t.stopped||_dEstop())?'#ef4444':(isOverTemp?'#FF0000':(t.color||'#FFC107'));
+    ctx.fillStyle=(t.stopped||_dEstop())?'#ef4444':(isOverTemp?'#FF0000':(t.color||'#A78BFA'));
     ctx.beginPath();ctx.arc(x,y,6,0,2*Math.PI);ctx.fill();ctx.strokeStyle="#000";ctx.lineWidth=1;ctx.stroke();
     if(t.heading!=null){ctx.strokeStyle=ctx.fillStyle;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+Math.cos(-t.heading)*13,y+Math.sin(-t.heading)*13);ctx.stroke();}
     ctx.fillStyle="#fff";ctx.font="bold 9px monospace";ctx.textAlign="center";ctx.fillText(t.id,x,y-9);});
@@ -5088,14 +5088,14 @@ function drawV2VMap(){
   const ts=(STATE.ops&&STATE.ops.trucks)||[], s=_dScale();
   // dashed radio-range rings around live units
   ts.forEach(t=>{ if(t.x==null)return; const x=P.px(t.x),y=P.py(t.y);
-    ctx.strokeStyle='rgba(255,205,17,0.10)';ctx.lineWidth=1;ctx.setLineDash([4,4]);
+    ctx.strokeStyle='rgba(167,139,250,0.10)';ctx.lineWidth=1;ctx.setLineDash([4,4]);
     ctx.beginPath();ctx.arc(x,y,V2V_RANGE_L*P.s,0,2*Math.PI);ctx.stroke();ctx.setLineDash([]); });
   // links between in-range pairs, coloured by separation
   for(let i=0;i<ts.length;i++)for(let j=i+1;j<ts.length;j++){
     if(ts[i].x==null||ts[j].x==null)continue;
     const d=Math.hypot(ts[i].x-ts[j].x,ts[i].y-ts[j].y);
     if(d>=V2V_RANGE_L)continue;
-    const q=d*s<40?'#FF7B72':d*s<70?'#FFCD11':'#3ED598';
+    const q=d*s<40?'#FF7B72':d*s<70?'#A78BFA':'#3ED598';
     ctx.strokeStyle=q;ctx.lineWidth=1.5;ctx.globalAlpha=0.85;
     ctx.beginPath();ctx.moveTo(P.px(ts[i].x),P.py(ts[i].y));ctx.lineTo(P.px(ts[j].x),P.py(ts[j].y));ctx.stroke();
     ctx.globalAlpha=1;
@@ -5103,7 +5103,7 @@ function drawV2VMap(){
     ctx.fillStyle=q;ctx.font='9px monospace';ctx.textAlign='center';ctx.fillText(Math.round(d*s)+'m',mx,my-4);
   }
   ts.forEach(t=>{ if(t.x==null)return; const x=P.px(t.x),y=P.py(t.y);
-    ctx.fillStyle=(t.stopped||_dEstop())?'#ef4444':(t.color||'#FFC107');
+    ctx.fillStyle=(t.stopped||_dEstop())?'#ef4444':(t.color||'#A78BFA');
     ctx.beginPath();ctx.arc(x,y,6,0,2*Math.PI);ctx.fill();ctx.strokeStyle='#000';ctx.lineWidth=1;ctx.stroke();
     ctx.fillStyle='#fff';ctx.font='bold 9px monospace';ctx.textAlign='center';ctx.fillText(t.id,x,y-9);});
   if(!ts.length||ts[0].x==null){ctx.fillStyle='#7c8aa0';ctx.font='13px monospace';ctx.textAlign='center';ctx.fillText('Run Live Operations to bring the mesh up',c.width/2,c.height/2);}
